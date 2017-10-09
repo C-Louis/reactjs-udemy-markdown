@@ -1,11 +1,10 @@
 // For js files, no need of extension '.js'
 import React from 'react';
 import { render } from 'react-dom';
-
+import marked from 'marked';
 //css
 import './style/css/bootstrap.min.css';
 import './index.css';
-
 //JS
 import { sampleText } from './sampleText';
 
@@ -19,6 +18,11 @@ class App extends React.Component {
     editText = (event) => {
       const text = event.target.value;
       this.setState({ text });
+    };
+
+    renderText = (text) => {
+      const renderText = marked(text, {sanitize: true});
+      return { __html: renderText };
     };
 
     render() {
@@ -35,7 +39,7 @@ class App extends React.Component {
                         </textarea>
                     </div>
                     <div className="col-sm-6">
-                        <div>{this.state.text}</div>
+                        <div dangerouslySetInnerHTML={this.renderText(this.state.text)}/>
                     </div>
                 </div>
             </div>
