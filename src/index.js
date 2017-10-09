@@ -1,9 +1,14 @@
 // For js files, no need of extension '.js'
 import React from 'react';
 import { render } from 'react-dom';
+
 //css
 import './style/css/bootstrap.min.css';
 import './index.css';
+
+//JS
+import { sampleText } from './sampleText';
+
 
 class App extends React.Component {
     render() {
@@ -12,12 +17,11 @@ class App extends React.Component {
             <div className="container">
                 <div className="row">
                     <div className="col-sm-6">
-                        <textarea rows="35" className="form-control" value="Tapez votre texte">
-
+                        <textarea rows="35" className="form-control" value={sampleText}>
                         </textarea>
                     </div>
                     <div className="col-sm-6">
-                        <h1>Resultats</h1>
+                        <div>{sampleText}</div>
                     </div>
                 </div>
             </div>
