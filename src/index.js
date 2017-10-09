@@ -11,17 +11,23 @@ import { sampleText } from './sampleText';
 
 
 class App extends React.Component {
+
+    state = {
+      text: sampleText
+    };
+
     render() {
         return (
             // html class => use 'className'
             <div className="container">
                 <div className="row">
                     <div className="col-sm-6">
-                        <textarea rows="35" className="form-control" value={sampleText}>
+                        <textarea rows="35" className="form-control"
+                                  value={this.state.text}>
                         </textarea>
                     </div>
                     <div className="col-sm-6">
-                        <div>{sampleText}</div>
+                        <div>{this.state.text}</div>
                     </div>
                 </div>
             </div>
